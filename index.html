@@ -3,19 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI-Based Urban Air Quality Monitoring and Forecasting System in Sri Lanka — Research Project Website" />
-  <meta name="keywords" content="air quality, AI, IoT, Sri Lanka, machine learning, forecasting, research" />
-  <meta name="author" content="Research Team — SLIIT" />
-  <meta property="og:title" content="AirQ AI — Urban Air Quality Research" />
-  <meta property="og:description" content="AI-powered air quality monitoring and forecasting for Sri Lanka." />
+  <meta name="description" content="Predictive Models for Urban Air Quality Management using AI — Research Project Website, SLIIT Sri Lanka, IEEE ISDFS 2026" />
+  <meta name="keywords" content="air quality, AI, Sri Lanka, SARIMAX, TFT, GRU, LSTM, CEA, CEEMDAN, XAI, research" />
+  <meta name="author" content="Dulara Liyanage, Nimasha Fernando, Nimasha Vithanage, Imasha Wijewardane — SLIIT" />
   <title>AirQ AI | Home</title>
   <link rel="stylesheet" href="styles.css" />
-  <!-- Favicon SVG inline -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d7377'/><text y='22' x='6' font-size='18'>🌿</text></svg>" />
 </head>
 <body>
 
-  <!-- ===== NAVIGATION ===== -->
   <nav class="navbar">
     <div class="container nav-inner">
       <a href="index.html" class="nav-brand">
@@ -34,90 +30,98 @@
     </div>
   </nav>
 
-  <!-- ===== HERO ===== -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">📍 Research Project — SLIIT, Sri Lanka</div>
-        <h1>AI-Based Urban Air Quality Monitoring &amp; Forecasting System</h1>
+        <div class="hero-badge">📍 IEEE ISDFS 2026 — Faculty of Computing, SLIIT, Sri Lanka</div>
+        <h1>Predictive Models for Urban Air Quality Management using AI</h1>
         <p>
-          Harnessing the power of IoT sensors and machine learning to deliver real-time air quality
-          intelligence across Sri Lanka's urban centres — enabling healthier cities through data.
+          An integrated AI framework combining hybrid deep learning, ensemble spatial estimation, and
+          Explainable AI to transition Sri Lanka's urban centres from reactive to proactive air quality management.
         </p>
         <div class="hero-cta">
           <a href="domain.html" class="btn btn-primary">Explore Research ↗</a>
-          <a href="documents.html" class="btn btn-outline" style="color:white; border-color:rgba(255,255,255,0.5)">View Documents</a>
+          <a href="documents.html" class="btn btn-outline" style="color:white;border-color:rgba(255,255,255,0.5)">View Documents</a>
         </div>
       </div>
       <div class="hero-stats">
         <div class="stat-item">
-          <div class="stat-num">4</div>
-          <div class="stat-label">Team Members</div>
+          <div class="stat-num">81.6%</div>
+          <div class="stat-label">RMSE reduction (O₃)</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">5+</div>
-          <div class="stat-label">Milestones</div>
+          <div class="stat-num">0.9077</div>
+          <div class="stat-label">R² — 24-hr AQI forecast</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">6</div>
-          <div class="stat-label">Technologies</div>
+          <div class="stat-num">0.79</div>
+          <div class="stat-label">F1 — anomaly detection</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">2025</div>
-          <div class="stat-label">Project Year</div>
+          <div class="stat-num">2019–24</div>
+          <div class="stat-label">CEA dataset span</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== ABOUT THE PROJECT ===== -->
+  <!-- ABOUT -->
   <section class="section" style="background:var(--white)">
     <div class="container">
       <h2 class="section-title">About the Project</h2>
       <div class="divider"></div>
-      <p class="section-sub">A brief overview of what we are building and why it matters.</p>
-      <div style="display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:center;">
+      <p class="section-sub">A brief overview of what we built and why it matters for Sri Lanka.</p>
+      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;">
         <div>
-          <p style="color:var(--text-muted); font-size:1.02rem; margin-bottom:18px;">
-            This project focuses on developing an <strong>AI-powered system</strong> to monitor and forecast
-            urban air quality in Sri Lanka using <strong>IoT sensors</strong> and advanced <strong>machine
-            learning models</strong>.
+          <p style="color:var(--text-muted);font-size:1.02rem;margin-bottom:18px;">
+            Air pollution threatens public health in data-scarce urban areas like Sri Lanka, where the
+            <strong>Central Environmental Authority (CEA)</strong> operates just <strong>two fixed automated
+            monitoring stations</strong>, leaving cities like Colombo, Kandy, and Kurunegala without
+            adequate coverage or forward-looking forecasts.
           </p>
-          <p style="color:var(--text-muted); font-size:1.02rem; margin-bottom:18px;">
-            Rapid urbanisation in cities like Colombo, Kandy, and Galle has led to a significant rise in
-            air pollutants such as PM2.5, PM10, CO₂, and NO₂. Existing monitoring infrastructure is
-            sparse, reactive, and unable to deliver actionable forecasts to citizens or policymakers.
+          <p style="color:var(--text-muted);font-size:1.02rem;margin-bottom:18px;">
+            This research proposes an integrated AI framework with four modules:
+            a hybrid <strong>SARIMAX–Temporal Fusion Transformer</strong> for multi-pollutant hourly
+            forecasting; an <strong>ensemble spatial estimator</strong> (RBF, GP, KNN, IDW) for
+            gap-filling pollution maps; a <strong>CEEMDAN–Seq2Seq-Attention</strong> pipeline for
+            24-hour AQI risk alerting; and a <strong>GRU-based anomaly detector</strong> with XGBoost
+            + SHAP Explainable AI for causal transparency.
           </p>
-          <p style="color:var(--text-muted); font-size:1.02rem; margin-bottom:28px;">
-            Our solution integrates low-cost IoT sensor networks with LSTM and XGBoost forecasting
-            models, a FastAPI back-end, and a cross-platform Flutter dashboard — giving communities
-            real-time air quality data and 24-hour ahead forecasts.
+          <p style="color:var(--text-muted);font-size:1.02rem;margin-bottom:28px;">
+            Validated on CEA historical data (2019–2024) from Battaramulla and Kandy stations, the
+            framework outperforms baselines by <strong>15–81%</strong> and delivers a real-time
+            Flutter web dashboard aggregated via a FastAPI back-end.
           </p>
           <a href="domain.html" class="btn btn-primary">Read Full Domain ↗</a>
         </div>
-        <div style="background:var(--off-white); border-radius:var(--radius); padding:32px; border:1px solid var(--border);">
-          <div style="font-size:3rem; text-align:center; margin-bottom:16px;">🏙️</div>
-          <h3 style="text-align:center; margin-bottom:16px;">Project Snapshot</h3>
-          <table style="width:100%; font-size:0.9rem; border-collapse:collapse;">
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:32px;border:1px solid var(--border);">
+          <div style="font-size:3rem;text-align:center;margin-bottom:16px;">🏙️</div>
+          <h3 style="text-align:center;margin-bottom:16px;">Project Snapshot</h3>
+          <table style="width:100%;font-size:0.9rem;border-collapse:collapse;">
             <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:8px 0; color:var(--text-muted);">Institution</td>
-              <td style="padding:8px 0; font-weight:600;">SLIIT, Sri Lanka</td>
+              <td style="padding:8px 0;color:var(--text-muted);">Institution</td>
+              <td style="padding:8px 0;font-weight:600;">SLIIT, Sri Lanka</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:8px 0; color:var(--text-muted);">Year</td>
-              <td style="padding:8px 0; font-weight:600;">[Add Year]</td>
+              <td style="padding:8px 0;color:var(--text-muted);">Published</td>
+              <td style="padding:8px 0;font-weight:600;">IEEE ISDFS 2026</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:8px 0; color:var(--text-muted);">Category</td>
-              <td style="padding:8px 0; font-weight:600;">Final Year Research</td>
+              <td style="padding:8px 0;color:var(--text-muted);">Data Source</td>
+              <td style="padding:8px 0;font-weight:600;">CEA Sri Lanka (2019–2024)</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border);">
-              <td style="padding:8px 0; color:var(--text-muted);">Domain</td>
-              <td style="padding:8px 0; font-weight:600;">AI / IoT / Environment</td>
+              <td style="padding:8px 0;color:var(--text-muted);">Study Locations</td>
+              <td style="padding:8px 0;font-weight:600;">Battaramulla &amp; Kandy</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:8px 0;color:var(--text-muted);">Supervisors</td>
+              <td style="padding:8px 0;font-weight:600;">Dinuka Wijendra &amp; Thamali Dassanayake</td>
             </tr>
             <tr>
-              <td style="padding:8px 0; color:var(--text-muted);">Supervisor</td>
-              <td style="padding:8px 0; font-weight:600;">[Supervisor Name]</td>
+              <td style="padding:8px 0;color:var(--text-muted);">DOI</td>
+              <td style="padding:8px 0;font-weight:600;font-size:0.78rem;">10.1109/ISDFS69419.2026.11459026</td>
             </tr>
           </table>
         </div>
@@ -125,55 +129,85 @@
     </div>
   </section>
 
-  <!-- ===== KEY FEATURES ===== -->
+  <!-- KEY CONTRIBUTIONS -->
   <section class="section" style="background:var(--off-white)">
     <div class="container">
-      <h2 class="section-title">Key Features</h2>
+      <h2 class="section-title">Key Contributions</h2>
       <div class="divider"></div>
-      <p class="section-sub">Four pillars that make this system comprehensive and impactful.</p>
+      <p class="section-sub">Four integrated AI modules enabling end-to-end proactive air quality management.</p>
       <div class="feature-grid">
         <div class="card">
-          <div class="card-icon">📡</div>
-          <h3>Real-Time Monitoring</h3>
-          <p>Low-cost IoT sensor nodes deployed across urban areas stream PM2.5, PM10, CO₂, NO₂, temperature and humidity data continuously via MQTT.</p>
+          <div class="card-icon">🔮</div>
+          <h3>Hybrid Multi-Pollutant Forecasting</h3>
+          <p>SARIMAX–TFT model captures both linear and non-linear volatilities for PM2.5, PM10, NO₂, SO₂, and O₃. Achieves <strong>81.6% RMSE reduction</strong> for ozone over baseline SARIMAX.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🤖</div>
-          <h3>AI-Based Forecasting</h3>
-          <p>LSTM and XGBoost models trained on historical and real-time data deliver accurate 24-hour ahead air quality index (AQI) predictions.</p>
+          <div class="card-icon">🗺️</div>
+          <h3>Ensemble Spatial Estimation</h3>
+          <p>Weighted RBF (0.25), GP (0.25), KNN (0.20), IDW (0.30) ensemble generates <strong>1 km × 1 km pollution maps</strong> for unmonitored regions, visualised on a Flutter heatmap.</p>
         </div>
         <div class="card">
-          <div class="card-icon">🔔</div>
-          <h3>Smart Alerts System</h3>
-          <p>Automated threshold-based and ML-triggered push notifications warn users of hazardous conditions before they escalate.</p>
+          <div class="card-icon">🚨</div>
+          <h3>24-Hour AQI Risk Alerting</h3>
+          <p>CEEMDAN decomposes non-stationary AQI signals; Seq2Seq-Attention forecasts 24-hour risk levels with <strong>R² = 0.9077</strong>, triggering automated health alerts via the mobile app.</p>
         </div>
         <div class="card">
-          <div class="card-icon">📱</div>
-          <h3>Mobile Dashboard</h3>
-          <p>A cross-platform Flutter app visualises AQI maps, sensor readings, forecasts, and personalised health advisories for citizens.</p>
+          <div class="card-icon">🔍</div>
+          <h3>Anomaly Detection + XAI</h3>
+          <p>GRU ensemble achieves F1 = 0.79 for anomaly classification. XGBoost + SHAP explains causal drivers, outputting specific <strong>preventive public health tips</strong> in the mobile dashboard.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== TECHNOLOGY STRIP ===== -->
+  <!-- RESULTS STRIP -->
   <section class="section-sm" style="background:var(--teal-dark);">
     <div class="container" style="text-align:center;">
-      <p style="color:rgba(255,255,255,0.6); font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:20px;">Technologies Used</p>
-      <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
-        <span class="tech-pill" style="background:rgba(255,255,255,0.12); color:white; border:1px solid rgba(255,255,255,0.2);">🐍 Python</span>
-        <span class="tech-pill" style="background:rgba(255,255,255,0.12); color:white; border:1px solid rgba(255,255,255,0.2);">⚡ FastAPI</span>
-        <span class="tech-pill" style="background:rgba(255,255,255,0.12); color:white; border:1px solid rgba(255,255,255,0.2);">📱 Flutter</span>
-        <span class="tech-pill" style="background:rgba(255,255,255,0.12); color:white; border:1px solid rgba(255,255,255,0.2);">🍃 MongoDB</span>
-        <span class="tech-pill" style="background:rgba(255,255,255,0.12); color:white; border:1px solid rgba(255,255,255,0.2);">📶 MQTT</span>
-        <span class="tech-pill" style="background:rgba(255,255,255,0.12); color:white; border:1px solid rgba(255,255,255,0.2);">🧠 XGBoost</span>
-        <span class="tech-pill" style="background:rgba(255,255,255,0.12); color:white; border:1px solid rgba(255,255,255,0.2);">🔁 LSTM</span>
+      <p style="color:rgba(255,255,255,0.6);font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:24px;">Key Results at a Glance</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;max-width:900px;margin:0 auto;">
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:20px;">
+          <div style="font-size:1.7rem;font-weight:700;color:white;">81.6%</div>
+          <div style="font-size:0.8rem;color:rgba(255,255,255,0.65);margin-top:4px;">RMSE reduction — O₃<br/>(SARIMAX-TFT vs baseline)</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:20px;">
+          <div style="font-size:1.7rem;font-weight:700;color:white;">R²=0.9077</div>
+          <div style="font-size:0.8rem;color:rgba(255,255,255,0.65);margin-top:4px;">24-hr AQI forecast<br/>(CEEMDAN-Seq2Seq)</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:20px;">
+          <div style="font-size:1.7rem;font-weight:700;color:white;">F1=0.79</div>
+          <div style="font-size:0.8rem;color:rgba(255,255,255,0.65);margin-top:4px;">Anomaly classification<br/>(GRU ensemble)</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:20px;">
+          <div style="font-size:1.7rem;font-weight:700;color:white;">R²=0.9786</div>
+          <div style="font-size:0.8rem;color:rgba(255,255,255,0.65);margin-top:4px;">1-hr AQI baseline<br/>(LSTM model)</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== QUICK LINKS ===== -->
-  <section class="section" style="background:var(--white);">
+  <!-- TECH STRIP -->
+  <section class="section-sm" style="background:var(--white);">
+    <div class="container" style="text-align:center;">
+      <p style="color:var(--text-muted);font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:20px;">Models &amp; Technologies</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+        <span class="tech-pill">SARIMAX-TFT</span>
+        <span class="tech-pill">CEEMDAN-Seq2Seq</span>
+        <span class="tech-pill">GRU</span>
+        <span class="tech-pill">LSTM</span>
+        <span class="tech-pill">XGBoost + SHAP</span>
+        <span class="tech-pill">Isolation Forest</span>
+        <span class="tech-pill">One-Class SVM</span>
+        <span class="tech-pill">FastAPI</span>
+        <span class="tech-pill">Flutter</span>
+        <span class="tech-pill">HYSPLIT</span>
+        <span class="tech-pill">Open-Meteo API</span>
+        <span class="tech-pill">K-Means</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK LINKS -->
+  <section class="section" style="background:var(--off-white);">
     <div class="container">
       <h2 class="section-title">Quick Navigation</h2>
       <div class="divider"></div>
@@ -191,25 +225,19 @@
         <a href="about.html" class="card" style="text-decoration:none;">
           <div class="card-icon">👥</div>
           <h3>Our Team</h3>
-          <p>Meet the four researchers behind this project and their roles.</p>
+          <p>Meet the four researchers and two supervisors behind this IEEE publication.</p>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="domain.html">Domain</a>
-      <a href="milestones.html">Milestones</a>
-      <a href="documents.html">Documents</a>
-      <a href="presentations.html">Presentations</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="index.html">Home</a><a href="domain.html">Domain</a><a href="milestones.html">Milestones</a>
+      <a href="documents.html">Documents</a><a href="presentations.html">Presentations</a>
+      <a href="about.html">About Us</a><a href="contact.html">Contact Us</a>
     </div>
-    <p>© <span id="yr"></span> AI-Based Urban Air Quality Monitoring &amp; Forecasting System — SLIIT, Sri Lanka</p>
-    <script>document.getElementById('yr').textContent=new Date().getFullYear()</script>
+    <p>© 2026 Predictive Models for Urban Air Quality Management using AI — SLIIT, Sri Lanka | IEEE ISDFS 2026</p>
   </footer>
 
 </body>

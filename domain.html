@@ -3,20 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Domain — Literature survey, research gap, objectives, methodology, and technologies." />
+  <meta name="description" content="Domain — Literature survey, research gap, objectives, methodology from the IEEE paper." />
   <title>AirQ AI | Domain</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%230d7377'/><text y='22' x='6' font-size='18'>🌿</text></svg>" />
 </head>
 <body>
 
-  <!-- ===== NAVIGATION ===== -->
   <nav class="navbar">
     <div class="container nav-inner">
-      <a href="index.html" class="nav-brand">
-        <div class="brand-icon">🌿</div>
-        AirQ<span>AI</span>
-      </a>
+      <a href="index.html" class="nav-brand"><div class="brand-icon">🌿</div>AirQ<span>AI</span></a>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="domain.html" class="active">Domain</a></li>
@@ -29,16 +25,14 @@
     </div>
   </nav>
 
-  <!-- ===== PAGE HERO ===== -->
   <section class="page-hero">
     <div class="container">
       <h1>Research Domain</h1>
-      <p>Literature survey, research gap, problem statement, objectives, methodology, and technology stack.</p>
+      <p>Literature survey, research gap, problem statement, objectives, methodology, and results.</p>
       <div class="breadcrumb"><a href="index.html">Home</a><span>›</span>Domain</div>
     </div>
   </section>
 
-  <!-- ===== CONTENT ===== -->
   <section class="section">
     <div class="container">
 
@@ -46,41 +40,31 @@
       <div class="domain-section">
         <h2>📚 1. Literature Survey</h2>
         <div class="divider"></div>
-        <p>
-          Previous research on air quality prediction has explored a wide range of machine learning and deep
-          learning approaches. Statistical models such as <strong>ARIMA</strong> and <strong>SARIMA</strong>
-          were among the earliest used for time-series forecasting of pollutant concentrations, though their
-          linear assumptions limited accuracy with highly non-linear urban pollution data.
-        </p>
-        <p style="margin-top:12px;">
-          More recent studies have demonstrated strong results with <strong>LSTM (Long Short-Term Memory)</strong>
-          neural networks, which effectively capture long-range temporal dependencies in sequential sensor data.
-          <strong>XGBoost</strong> and ensemble tree methods have shown competitive performance, particularly
-          for tabular feature-rich datasets incorporating weather variables such as wind speed, humidity, and temperature.
-        </p>
-        <p style="margin-top:12px;">
-          IoT-based sensor deployments for low-cost air quality monitoring have been studied in cities across
-          South and South-East Asia; however, Sri Lanka remains comparatively underrepresented in the literature.
-          Platforms such as <strong>AirVisual</strong> and <strong>PurpleAir</strong> demonstrate the viability
-          of citizen-science sensor networks, while academic efforts increasingly combine sensor fusion with
-          geo-spatial interpolation to fill coverage gaps.
-        </p>
-        <p style="margin-top:12px; color:var(--text-muted); font-style:italic;">
-          [Extend this section with references to specific papers (IEEE, Springer, Elsevier) relevant to your review.]
-        </p>
+
+        <p style="margin-bottom:14px;"><strong>A. Time-Series Forecasting of Urban Air Pollution</strong></p>
+        <p>Recent Sri Lankan studies have shown the potential of data-driven forecasting using models like LSTM and XGBoost to predict individual pollutants such as PM2.5 and PM10. However, these models are limited by their single-pollutant scope and lack of model transparency. Global research indicates that hybrid frameworks combining linear statistical methods (ARIMA) with deep learning non-linearity significantly outperform standalone models in handling complex air quality dynamics. Despite recent advancements, the use of <strong>Transformer-based hybrid models for forecasting multiple pollutants simultaneously</strong> remains unexplored locally.</p>
+
+        <p style="margin-top:16px; margin-bottom:14px;"><strong>B. Spatial Estimation of Urban Air Pollution</strong></p>
+        <p>Urban air pollution estimation has evolved from traditional geostatistical methods to machine learning and deep learning frameworks. Deep learning models capture complex spatial and temporal dependencies but require significant computing power and large training datasets. Classical methods like regression, random forest, and kriging are interpretable and efficient but struggle in high-dimensional, rapidly changing urban environments. Few studies have combined these approaches into a <strong>single unified framework</strong> — a gap this research addresses.</p>
+
+        <p style="margin-top:16px; margin-bottom:14px;"><strong>C. Time-Based Pollution Risk Scoring &amp; Alert Simulation</strong></p>
+        <p>Accurate forecasting of non-linear air quality data is greatly enhanced by <strong>CEEMDAN decomposition</strong>, which separates chaotic noise from steady diurnal and seasonal trends to stabilise 24-hour predictions. Integration of <strong>HYSPLIT trajectory analysis</strong> validates transboundary pollution contributions. Existing models handle meteorological features separately and lack systems for converting complex interactions into public health alerts — particularly given the negative correlation between PM2.5 and factors such as temperature and wind speed.</p>
+
+        <p style="margin-top:16px; margin-bottom:14px;"><strong>D. Air Quality Anomaly Detection and Pollution Event Characterisation</strong></p>
+        <p>Atmospheric anomalies are early warning signs of poor air quality. Current research underscores the influence of temporal-calendar factors on pollution spikes. Learning both pointwise representations and event-wise associations is essential for understanding these spikes. Integrating temporal calendar data with deep learning models like <strong>GRU or LSTM</strong>, enhanced with XAI, provides a clear path for predicting and explaining environmental anomalies for public health applications.</p>
       </div>
 
       <!-- 2. Research Gap -->
       <div class="domain-section">
         <h2>🔍 2. Research Gap</h2>
         <div class="divider"></div>
-        <p>Existing systems and published research exhibit the following key limitations:</p>
-        <ul style="margin-top:16px;">
-          <li>Existing systems <strong>lack real-time adaptability</strong> — predictions are batch-based and not continuously updated with incoming sensor streams.</li>
-          <li>Most solutions offer <strong>coarse spatial resolution</strong>, providing city-level AQI rather than neighbourhood or micro-zone granularity.</li>
-          <li>There is a <strong>severe lack of localised models</strong> trained on Sri Lankan meteorological and traffic patterns, limiting the applicability of imported models.</li>
-          <li>Available commercial platforms do not provide <strong>actionable health advisory outputs</strong> tailored to local demographics and vulnerability profiles.</li>
-          <li>Integration of <strong>predictive forecasting with real-time IoT streams</strong> in a unified, low-latency pipeline remains absent in published Sri Lankan literature.</li>
+        <p>Despite global advances, a significant gap exists in Sri Lankan and broader developing-country contexts:</p>
+        <ul style="margin-top:14px;">
+          <li>The CEA operates just <strong>two fixed automated monitoring stations</strong> with a few low-cost sensors, resulting in large spatial coverage gaps.</li>
+          <li>Existing local systems take a <strong>reactive approach</strong> — analysing past data — rather than using forecasting for prevention.</li>
+          <li>Current research focuses on <strong>single-pollutant models</strong> without interpretability tools, limiting their policy utility.</li>
+          <li>There is a lack of an <strong>integrated, multi-pollutant forecasting system</strong> combining high predictive accuracy with spatial scalability and model transparency.</li>
+          <li>No publicly accessible system in Sri Lanka translates pollution data into <strong>actionable health recommendations and automated alerts</strong> for citizens.</li>
         </ul>
       </div>
 
@@ -89,17 +73,19 @@
         <h2>❓ 3. Research Problem</h2>
         <div class="divider"></div>
         <p>
-          Urban areas in Sri Lanka — particularly Colombo, Kandy, Negombo, and Galle — are experiencing
-          rapidly deteriorating air quality driven by vehicle emissions, industrial activity, and construction.
-          Despite this, cities <strong>lack intelligent, data-driven systems</strong> capable of monitoring
-          pollution levels in real time and providing reliable short-term forecasts to enable preemptive action
-          by individuals, health services, and municipal authorities.
+          Air pollution has become a major environmental and public health concern in Sri Lanka. Globally,
+          air pollution causes approximately <strong>7 million deaths annually</strong>. In the South-East Asia
+          and Western Pacific regions alone, 2.2 million and 2.8 million pollution-related deaths are recorded
+          respectively. Sri Lanka is witnessing increasing air quality problems driven by rapid urbanisation
+          and vehicular emissions in cities like <strong>Colombo, Kandy, and Kurunegala</strong>.
         </p>
         <p style="margin-top:12px;">
-          The absence of such a system means that residents are exposed to hazardous air quality events without
-          warning, and policymakers cannot evaluate the spatiotemporal impact of interventions. This research
-          addresses the gap by designing and validating an <strong>end-to-end AI-powered monitoring and
-          forecasting platform</strong> tuned to Sri Lanka's unique urban conditions.
+          The CEA's minimal monitoring infrastructure results in a large spatial coverage gap, forcing a
+          purely <strong>reactive approach</strong> to pollution management. The absence of an integrated,
+          intelligent system means residents face hazardous air quality events without warning, and
+          policymakers cannot evaluate the spatiotemporal impact of interventions. This research addresses
+          the gap by designing a <strong>modular, explainable AI framework</strong> validated on CEA data
+          from 2019–2024.
         </p>
       </div>
 
@@ -107,27 +93,26 @@
       <div class="domain-section">
         <h2>🎯 4. Research Objectives</h2>
         <div class="divider"></div>
-        <p>This project is guided by four primary objectives:</p>
-        <div class="grid-2" style="margin-top:24px;">
-          <div style="background:var(--off-white); border-radius:var(--radius-sm); padding:20px; border:1px solid var(--border);">
-            <div style="font-size:1.6rem; margin-bottom:8px;">🧠</div>
-            <h4 style="margin-bottom:6px;">Develop AI Forecasting Model</h4>
-            <p style="font-size:0.88rem; color:var(--text-muted);">Design, train, and evaluate LSTM and XGBoost models to accurately predict AQI up to 24 hours in advance using historical and live sensor data.</p>
+        <div class="grid-2" style="margin-top:20px;">
+          <div style="background:var(--off-white);border-radius:var(--radius-sm);padding:20px;border:1px solid var(--border);">
+            <div style="font-size:1.5rem;margin-bottom:8px;">🔮</div>
+            <h4 style="margin-bottom:6px;">Hybrid Multi-Pollutant Forecasting</h4>
+            <p style="font-size:0.88rem;color:var(--text-muted);">Develop a SARIMAX–Temporal Fusion Transformer (TFT) model capturing both linear and non-linear volatilities for PM2.5, PM10, NO₂, SO₂, and O₃ forecasting.</p>
           </div>
-          <div style="background:var(--off-white); border-radius:var(--radius-sm); padding:20px; border:1px solid var(--border);">
-            <div style="font-size:1.6rem; margin-bottom:8px;">📡</div>
-            <h4 style="margin-bottom:6px;">Build IoT Data Collection System</h4>
-            <p style="font-size:0.88rem; color:var(--text-muted);">Assemble and deploy low-cost sensor nodes measuring PM2.5, PM10, CO₂, NO₂, temperature, and humidity, transmitting data via MQTT in real time.</p>
+          <div style="background:var(--off-white);border-radius:var(--radius-sm);padding:20px;border:1px solid var(--border);">
+            <div style="font-size:1.5rem;margin-bottom:8px;">🗺️</div>
+            <h4 style="margin-bottom:6px;">Spatial Scalability</h4>
+            <p style="font-size:0.88rem;color:var(--text-muted);">Implement an Ensemble Spatial Estimation framework using geospatial datasets (SRTM, ESA WorldCover, WorldPop, OSM) to generate accurate pollution maps for unmonitored regions.</p>
           </div>
-          <div style="background:var(--off-white); border-radius:var(--radius-sm); padding:20px; border:1px solid var(--border);">
-            <div style="font-size:1.6rem; margin-bottom:8px;">🔔</div>
-            <h4 style="margin-bottom:6px;">Create Smart Alert System</h4>
-            <p style="font-size:0.88rem; color:var(--text-muted);">Implement automated, threshold-based and ML-triggered push notifications to warn citizens and authorities of approaching hazardous AQI levels.</p>
+          <div style="background:var(--off-white);border-radius:var(--radius-sm);padding:20px;border:1px solid var(--border);">
+            <div style="font-size:1.5rem;margin-bottom:8px;">🚨</div>
+            <h4 style="margin-bottom:6px;">Proactive Risk Assessment</h4>
+            <p style="font-size:0.88rem;color:var(--text-muted);">Integrate a CEEMDAN–Seq2Seq model to forecast 24-hour AQI trends and trigger automated health alerts using CEA AQI breakpoints.</p>
           </div>
-          <div style="background:var(--off-white); border-radius:var(--radius-sm); padding:20px; border:1px solid var(--border);">
-            <div style="font-size:1.6rem; margin-bottom:8px;">📱</div>
-            <h4 style="margin-bottom:6px;">Develop User Dashboard</h4>
-            <p style="font-size:0.88rem; color:var(--text-muted);">Build a cross-platform Flutter mobile application providing interactive AQI maps, historical trends, forecasts, and personalised health recommendations.</p>
+          <div style="background:var(--off-white);border-radius:var(--radius-sm);padding:20px;border:1px solid var(--border);">
+            <div style="font-size:1.5rem;margin-bottom:8px;">🔍</div>
+            <h4 style="margin-bottom:6px;">Anomaly Detection &amp; XAI</h4>
+            <p style="font-size:0.88rem;color:var(--text-muted);">Deploy an ensemble-based GRU framework to identify abrupt pollution spikes over a 7-day horizon, with XGBoost + SHAP for causal transparency and preventive health tips.</p>
           </div>
         </div>
       </div>
@@ -136,66 +121,192 @@
       <div class="domain-section">
         <h2>⚙️ 5. Methodology</h2>
         <div class="divider"></div>
-        <p style="margin-bottom:20px;">The system follows a six-stage data pipeline from physical sensing to end-user output:</p>
+
+        <!-- 5A -->
+        <p style="font-weight:600; margin-bottom:10px;">A. Time-Series Forecasting — SARIMAX–TFT Hybrid</p>
+        <p style="color:var(--text-muted); margin-bottom:12px;">Historical data (2019–2024) from the CEA was imputed using Seasonality-Aware Imputation (Linear Interpolation, MICE). Features include wind vectors, binary monsoon activity flags, and traffic peak indicators. The pollutant concentration Yₜ is decomposed into a log-transformed SARIMAX linear baseline (L̂ₜ) and a TFT residual learner (R̂TFT):</p>
+        <div style="background:var(--teal-dark);color:white;border-radius:var(--radius-sm);padding:16px 20px;font-family:monospace;font-size:0.9rem;margin-bottom:12px;">
+          eₜ = Yₜ − L̂ₜ &nbsp;&nbsp; → &nbsp;&nbsp; Ŷfinal = exp(L̂ₜ) + R̂TFT
+        </div>
+        <p style="color:var(--text-muted); margin-bottom:20px;">A ReLU function ensures non-negative outputs. XAI attention weights quantify feature importance and outputs are mapped to CEA AQI standards.</p>
+
+        <!-- 5B -->
+        <p style="font-weight:600; margin-bottom:10px;">B. Ensemble Spatial Estimation</p>
+        <p style="color:var(--text-muted); margin-bottom:12px;">LSTM networks forecast one-hour-ahead pollutant concentrations at Battaramulla and Kandy stations (80/10/10 train/val/test split). Predictions are fed into an ensemble spatial estimator on a <strong>1 km × 1 km grid</strong> using fixed weighted averaging:</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px;">
+          <span class="tech-pill" style="background:var(--teal);">RBF — 0.25 (smooth interpolation)</span>
+          <span class="tech-pill" style="background:#14a8ad;">GP — 0.25 (uncertainty-aware)</span>
+          <span class="tech-pill" style="background:#09555a;">KNN — 0.20 (local similarity)</span>
+          <span class="tech-pill" style="background:#0d7377;">IDW — 0.30 (distance baseline)</span>
+        </div>
+        <p style="color:var(--text-muted); margin-bottom:20px;">Auxiliary geospatial datasets: elevation (SRTM), land cover (ESA WorldCover), population density (WorldPop), and road networks (OpenStreetMap). Results visualised via Flutter web heatmaps with FastAPI back-end.</p>
+
+        <!-- 5C -->
+        <p style="font-weight:600; margin-bottom:10px;">C. Time-Based Pollution Risk Scoring</p>
+        <p style="color:var(--text-muted); margin-bottom:12px;">Raw pollutant concentrations are converted to standardised AQI time series per CEA breakpoints. CEEMDAN decomposes non-stationary AQI signals into stable Intrinsic Mode Functions (IMFs). A <strong>Seq2Seq-Attention encoder-decoder</strong> integrates CEEMDAN outputs with a Transboundary Risk Index (HYSPLIT backward trajectories) and a heuristic Traffic Risk Score to forecast 24-hour AQI. Forecasts are displayed as 90% confidence intervals with CEA-classified risk levels and automated alert triggering. <strong>Permutation Feature Importance</strong> is used as the XAI layer.</p>
+
+        <!-- 5D -->
+        <p style="font-weight:600; margin-bottom:10px;">D. Air Quality Anomaly Detection</p>
+        <p style="color:var(--text-muted);">Ensemble anomaly detection uses <strong>Isolation Forest</strong>, <strong>One-Class SVM</strong>, and traditional statistical methods with majority-vote logic (2/3 consensus) to flag high-confidence outliers. K-Means clustering categorises detected anomalies into event types by severity, duration, and calendar context. A <strong>GRU model</strong> (80/20 train-test split) forecasts anomalies over a 7-day horizon. XGBoost + SHAP explains causal drivers and outputs specific preventive health tips — bridging data science and public health intervention.</p>
+
+        <!-- Pipeline -->
+        <p style="font-weight:600; margin-top:20px; margin-bottom:12px;">E. Real-Time Integration Pipeline</p>
         <div class="pipeline">
-          <div class="pipe-step">🔌 IoT Sensors</div>
+          <div class="pipe-step">🌐 Open-Meteo API</div>
           <div class="pipe-arrow">→</div>
-          <div class="pipe-step">📡 MQTT Broker</div>
+          <div class="pipe-step">📊 CEA Historical Data</div>
           <div class="pipe-arrow">→</div>
-          <div class="pipe-step">🧹 Pre-processing</div>
+          <div class="pipe-step">🧹 MICE Imputation</div>
           <div class="pipe-arrow">→</div>
-          <div class="pipe-step">🧠 ML Models</div>
+          <div class="pipe-step">🧠 AI Models</div>
           <div class="pipe-arrow">→</div>
           <div class="pipe-step">⚡ FastAPI Backend</div>
           <div class="pipe-arrow">→</div>
-          <div class="pipe-step">📱 Flutter App</div>
-        </div>
-        <div style="margin-top:28px;">
-          <p style="margin-bottom:10px;"><strong>Stage 1 — Data Collection:</strong> IoT sensor nodes (ESP32 + SDS011 + MQ-135) are deployed at key urban locations. Readings are published at 60-second intervals to an MQTT broker hosted on a cloud VM.</p>
-          <p style="margin-bottom:10px;"><strong>Stage 2 — Ingestion &amp; Storage:</strong> A Python subscriber service consumes MQTT messages, applies schema validation, and persists time-series records to MongoDB collections.</p>
-          <p style="margin-bottom:10px;"><strong>Stage 3 — Pre-processing:</strong> Missing value imputation (KNN interpolation), outlier removal (IQR filter), feature engineering (lag features, rolling statistics), and min-max normalisation prepare data for modelling.</p>
-          <p style="margin-bottom:10px;"><strong>Stage 4 — Model Training &amp; Evaluation:</strong> LSTM and XGBoost models are trained on labelled historical datasets. Performance is measured using RMSE, MAE, and R². The best model per sensor cluster is persisted via MLflow.</p>
-          <p style="margin-bottom:10px;"><strong>Stage 5 — API Layer:</strong> FastAPI exposes RESTful endpoints for current readings, forecast retrieval, and alert subscriptions. Endpoints are secured with JWT authentication.</p>
-          <p><strong>Stage 6 — Frontend:</strong> A Flutter mobile app renders real-time AQI maps (Google Maps SDK), time-series charts (fl_chart), and push notifications (FCM) for Android and iOS.</p>
+          <div class="pipe-step">📱 Flutter Dashboard</div>
         </div>
       </div>
 
-      <!-- 6. Technologies Used -->
+      <!-- 6. Results -->
       <div class="domain-section">
-        <h2>🛠️ 6. Technologies Used</h2>
+        <h2>📊 6. Results &amp; Discussion</h2>
         <div class="divider"></div>
-        <p style="margin-bottom:20px;">A carefully selected modern stack optimised for performance, scalability, and developer efficiency.</p>
+
+        <p style="font-weight:600; margin-bottom:12px;">A. Time-Series Forecasting — RMSE Improvement vs Baselines</p>
+        <div style="overflow-x:auto; margin-bottom:24px;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+            <thead>
+              <tr style="background:var(--teal);color:white;">
+                <th style="padding:10px 14px;text-align:left;border-radius:8px 0 0 0;">Hybrid Model</th>
+                <th style="padding:10px 14px;text-align:center;">PM₁₀</th>
+                <th style="padding:10px 14px;text-align:center;">PM₂.₅</th>
+                <th style="padding:10px 14px;text-align:center;border-radius:0 8px 0 0;">O₃</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:var(--off-white);font-weight:600;">
+                <td style="padding:10px 14px;border-bottom:1px solid var(--border);">SARIMAX + TFT (Proposed)</td>
+                <td style="padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);color:var(--teal);">25.4%</td>
+                <td style="padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);color:var(--teal);">15.0%</td>
+                <td style="padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);color:var(--teal);font-weight:700;">81.6%</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 14px;border-bottom:1px solid var(--border);">XGBoost + TFT</td>
+                <td style="padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);color:#c0392b;">−61.8%</td>
+                <td style="padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);color:#c0392b;">−51.8%</td>
+                <td style="padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);">16.2%</td>
+              </tr>
+              <tr style="background:var(--off-white);">
+                <td style="padding:10px 14px;border-bottom:1px solid var(--border);">TFT + SARIMA</td>
+                <td style="padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);">2.8%</td>
+                <td style="padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);">3.3%</td>
+                <td style="padding:10px 14px;text-align:center;border-bottom:1px solid var(--border);">11.2%</td>
+              </tr>
+              <tr>
+                <td style="padding:10px 14px;">TFT + LightGBM</td>
+                <td style="padding:10px 14px;text-align:center;">18.9%</td>
+                <td style="padding:10px 14px;text-align:center;">27.7%</td>
+                <td style="padding:10px 14px;text-align:center;color:#c0392b;">−13.6%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="font-weight:600; margin-bottom:12px;">Individual Pollutant Performance — Proposed SARIMAX-TFT (Battaramulla)</p>
+        <div style="overflow-x:auto; margin-bottom:24px;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+            <thead>
+              <tr style="background:var(--teal);color:white;">
+                <th style="padding:10px 14px;text-align:left;">Pollutant</th>
+                <th style="padding:10px 14px;text-align:center;">Base RMSE (SARIMAX)</th>
+                <th style="padding:10px 14px;text-align:center;">Hybrid RMSE (S+T)</th>
+                <th style="padding:10px 14px;text-align:center;">Improvement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:9px 14px;border-bottom:1px solid var(--border);">PM₁₀</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">17.07</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">12.73</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);color:var(--teal);font-weight:600;">25.4%</td></tr>
+              <tr style="background:var(--off-white);"><td style="padding:9px 14px;border-bottom:1px solid var(--border);">PM₂.₅</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">12.48</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">10.61</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);color:var(--teal);font-weight:600;">15.0%</td></tr>
+              <tr><td style="padding:9px 14px;border-bottom:1px solid var(--border);">O₃</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">10.62</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">1.95</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);color:var(--teal);font-weight:700;">81.6%</td></tr>
+              <tr style="background:var(--off-white);"><td style="padding:9px 14px;border-bottom:1px solid var(--border);">NO₂</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">5.26</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">3.37</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);color:var(--teal);font-weight:600;">36.0%</td></tr>
+              <tr><td style="padding:9px 14px;">SO₂</td><td style="padding:9px 14px;text-align:center;">4.28</td><td style="padding:9px 14px;text-align:center;">2.21</td><td style="padding:9px 14px;text-align:center;color:var(--teal);font-weight:600;">48.3%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="font-weight:600; margin-bottom:12px;">B. 24-Hour AQI Forecasting — Decomposition Model Comparison</p>
+        <div style="overflow-x:auto; margin-bottom:24px;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+            <thead>
+              <tr style="background:var(--teal);color:white;">
+                <th style="padding:10px 14px;text-align:left;">Model (24-hr horizon)</th>
+                <th style="padding:10px 14px;text-align:center;">MAE</th>
+                <th style="padding:10px 14px;text-align:center;">RMSE</th>
+                <th style="padding:10px 14px;text-align:center;">R²</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:9px 14px;border-bottom:1px solid var(--border);">CEEMDAN + LSTM</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">7.8651</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">11.8091</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">0.7426</td></tr>
+              <tr style="background:var(--off-white);font-weight:600;"><td style="padding:9px 14px;">CEEMDAN + Seq2Seq (Proposed)</td><td style="padding:9px 14px;text-align:center;color:var(--teal);">4.6395</td><td style="padding:9px 14px;text-align:center;color:var(--teal);">7.0737</td><td style="padding:9px 14px;text-align:center;color:var(--teal);">0.9077</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="font-weight:600; margin-bottom:12px;">C. Anomaly Detection Model Comparison</p>
+        <div style="overflow-x:auto; margin-bottom:8px;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+            <thead>
+              <tr style="background:var(--teal);color:white;">
+                <th style="padding:10px 14px;text-align:left;">Model</th>
+                <th style="padding:10px 14px;text-align:center;">MAE</th>
+                <th style="padding:10px 14px;text-align:center;">RMSE</th>
+                <th style="padding:10px 14px;text-align:center;">F1 Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding:9px 14px;border-bottom:1px solid var(--border);">XGBoost</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">3.1</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">4.2</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">0.71</td></tr>
+              <tr style="background:var(--off-white);font-weight:600;"><td style="padding:9px 14px;border-bottom:1px solid var(--border);">GRU (Proposed)</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);color:var(--teal);">2.6</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);color:var(--teal);">3.5</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);color:var(--teal);">0.79</td></tr>
+              <tr><td style="padding:9px 14px;border-bottom:1px solid var(--border);">TCN</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">4.6</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">4.9</td><td style="padding:9px 14px;text-align:center;border-bottom:1px solid var(--border);">0.64</td></tr>
+              <tr style="background:var(--off-white);"><td style="padding:9px 14px;">Deep Transformer</td><td style="padding:9px 14px;text-align:center;">4.3</td><td style="padding:9px 14px;text-align:center;">5.1</td><td style="padding:9px 14px;text-align:center;">0.51</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 7. Technologies Used -->
+      <div class="domain-section">
+        <h2>🛠️ 7. Technologies &amp; Models Used</h2>
+        <div class="divider"></div>
         <div class="tech-pills">
-          <span class="tech-pill">🐍 Python 3.11</span>
-          <span class="tech-pill">⚡ FastAPI</span>
-          <span class="tech-pill">📱 Flutter / Dart</span>
-          <span class="tech-pill">🍃 MongoDB Atlas</span>
-          <span class="tech-pill">📶 MQTT (Mosquitto)</span>
-          <span class="tech-pill">🧠 XGBoost</span>
-          <span class="tech-pill">🔁 LSTM (TensorFlow/Keras)</span>
-          <span class="tech-pill">📊 Pandas / NumPy</span>
-          <span class="tech-pill">🗺️ Google Maps SDK</span>
-          <span class="tech-pill">🔔 Firebase FCM</span>
-          <span class="tech-pill">🔒 JWT Auth</span>
-          <span class="tech-pill">📈 MLflow</span>
+          <span class="tech-pill">SARIMAX-TFT</span>
+          <span class="tech-pill">CEEMDAN-Seq2Seq-Attention</span>
+          <span class="tech-pill">GRU</span>
+          <span class="tech-pill">LSTM</span>
+          <span class="tech-pill">XGBoost + SHAP</span>
+          <span class="tech-pill">Isolation Forest</span>
+          <span class="tech-pill">One-Class SVM</span>
+          <span class="tech-pill">K-Means Clustering</span>
+          <span class="tech-pill">FastAPI</span>
+          <span class="tech-pill">Flutter (Web)</span>
+          <span class="tech-pill">HYSPLIT Trajectory</span>
+          <span class="tech-pill">Open-Meteo API</span>
+          <span class="tech-pill">SRTM Elevation</span>
+          <span class="tech-pill">ESA WorldCover</span>
+          <span class="tech-pill">WorldPop</span>
+          <span class="tech-pill">OpenStreetMap</span>
+          <span class="tech-pill">MICE Imputation</span>
+          <span class="tech-pill">Python</span>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="footer-links">
-      <a href="index.html">Home</a>
-      <a href="domain.html">Domain</a>
-      <a href="milestones.html">Milestones</a>
-      <a href="documents.html">Documents</a>
-      <a href="presentations.html">Presentations</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="index.html">Home</a><a href="domain.html">Domain</a><a href="milestones.html">Milestones</a>
+      <a href="documents.html">Documents</a><a href="presentations.html">Presentations</a>
+      <a href="about.html">About Us</a><a href="contact.html">Contact Us</a>
     </div>
-    <p>© 2025 AI-Based Urban Air Quality Monitoring &amp; Forecasting System — SLIIT, Sri Lanka</p>
+    <p>© 2026 Predictive Models for Urban Air Quality Management using AI — SLIIT, Sri Lanka | IEEE ISDFS 2026</p>
   </footer>
 
 </body>

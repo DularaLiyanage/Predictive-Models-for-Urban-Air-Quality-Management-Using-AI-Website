@@ -133,12 +133,10 @@
             Fill in the form below and a member of our team will respond within 2 working days. For
             urgent queries, please email us directly.
           </p>
-          <!--
-            To make this form functional, replace action="#" with:
-            - Formspree: action="https://formspree.io/f/YOUR_FORM_ID"
-            - Netlify Forms: add the netlify attribute to the <form> tag
-          -->
-          <form action="#" method="POST">
+          <form id="contact-form" method="POST">
+            <input type="hidden" name="access_key" value="88dcedac-84e4-4c14-b91a-d0de1833d74f" />
+            <input type="hidden" name="subject" value="New message from AeroCast website" />
+            <input type="hidden" name="from_name" value="AeroCast Contact Form" />
             <div class="form-group">
               <label for="name">Full Name <span style="color:var(--teal);">*</span></label>
               <input type="text" id="name" name="name" placeholder="e.g. Kasun Perera" required />
@@ -149,16 +147,60 @@
             </div>
             <div class="form-group">
               <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" placeholder="e.g. Research collaboration enquiry" />
+              <input type="text" id="msg-subject" name="message_subject" placeholder="e.g. Research collaboration enquiry" />
             </div>
             <div class="form-group">
               <label for="message">Message <span style="color:var(--teal);">*</span></label>
               <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:14px 28px;">
+            <button type="submit" id="submit-btn" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:14px 28px;">
               📨 Send Message
             </button>
           </form>
+
+          <div id="form-result" style="display:none;margin-top:16px;padding:14px 18px;border-radius:var(--radius-sm);font-size:0.93rem;"></div>
+
+          <script>
+            document.getElementById('contact-form').addEventListener('submit', async function (e) {
+              e.preventDefault();
+              const btn = document.getElementById('submit-btn');
+              const result = document.getElementById('form-result');
+              btn.disabled = true;
+              btn.innerHTML = '⏳ Sending...';
+              result.style.display = 'none';
+
+              const formData = new FormData(this);
+              const payload = JSON.stringify(Object.fromEntries(formData));
+
+              try {
+                const res = await fetch('https://api.web3forms.com/submit', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                  body: payload
+                });
+                const data = await res.json();
+                if (res.ok) {
+                  result.style.display = 'block';
+                  result.style.background = '#e6f9f0';
+                  result.style.border = '1px solid #34d399';
+                  result.style.color = '#065f46';
+                  result.innerHTML = '✅ Message sent! We will get back to you within 2 working days.';
+                  this.reset();
+                } else {
+                  throw new Error(data.message || 'Submission failed');
+                }
+              } catch (err) {
+                result.style.display = 'block';
+                result.style.background = '#fef2f2';
+                result.style.border = '1px solid #f87171';
+                result.style.color = '#991b1b';
+                result.innerHTML = '❌ ' + (err.message || 'Something went wrong. Please email us directly.');
+              }
+
+              btn.disabled = false;
+              btn.innerHTML = '📨 Send Message';
+            });
+          </script>
 
           <div style="background:var(--off-white);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;margin-top:24px;">
             <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:6px;"><strong>💡 Direct Email Template:</strong></p>
